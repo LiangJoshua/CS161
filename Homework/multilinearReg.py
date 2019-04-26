@@ -69,7 +69,7 @@ def stepwise_selection(X, y,
                 print('Add  {:30} with p-value {:.6}'.format(best_feature, best_pval))
 
         # backward step
-        model = sm.OLS(y, sm.add_constant(pd.DataFrame(X[included]))).fit()
+        model = sm.OLS(y, sm.add_constant(pd.DataFrame(X [included]))).fit()
         # use all coefs except intercept
         pvalues = model.pvalues.iloc[1:]
         worst_pval = pvalues.max()  # null if pvalues is empty
@@ -94,7 +94,7 @@ print(result)
 # Determiniation of dominant features , Method one Recursive Model Elimination,
 # very similar idea to foreward selection but done recurssively. This method is gready
 # which means it tries one feature at the time
-NUM_FEATURES = 6
+NUM_FEATURES = 4
 # this is kind of arbitrary but the idea should come by observing the scatter plots and correlation.
 model = LinearRegression()
 rfe = RFE(model, NUM_FEATURES)
